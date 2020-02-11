@@ -2,7 +2,7 @@ package projeto;
 
 import java.util.*;
 /*
- * @author VictorH
+ * @author Victor
  */
 public class Main {
 

@@ -7,7 +7,7 @@ package projeto;
 
 /**
  *
- * @author Beatriz
+ * @author Victor
  */
 public class Faxineiro extends Funcionario{
     

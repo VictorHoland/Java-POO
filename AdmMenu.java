@@ -80,7 +80,7 @@ public class AdmMenu {
             System.out.println("                  |     3 - Ver lista de funcionários          |");
             System.out.println("                  |     4 - Alterar dados do funcionário       |");
             System.out.println("                  |     5 - Bonificar funcionário              |");
-            System.out.println("                  |     6 - Punir funcionário              |");
+            System.out.println("                  |     6 - Punir funcionário                  |");
             System.out.println("                  |     0 - Sair                               |");
             System.out.println("                  ==============================\n");
             System.out.print("Digite sua Opcao -> ");

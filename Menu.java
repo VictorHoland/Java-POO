@@ -17,10 +17,10 @@ public class Menu{
         do{
             System.out.println("\t\t## Vai Filhao AirLines :: ##");
             System.out.println("\n                  ==============================");
-            System.out.println("                  |     1 - Agendar vôo    |");
-            System.out.println("                  |     2 - Cancelar vôo    |");
-            System.out.println("                  |     3 - Check in       |");
-            System.out.println("                  |     4 - Estatos atuais       |");
+            System.out.println("                  |     1 - Agendar vôo           |");
+            System.out.println("                  |     2 - Cancelar vôo          |");
+            System.out.println("                  |     3 - Check in              |");
+            System.out.println("                  |     4 - Estatos atuais        |");
             System.out.println("                  |     5 - Alterar senha da conta|");
             System.out.println("                  |     0 - Sair                  |");
             System.out.println("                  ==============================\n");

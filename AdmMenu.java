@@ -80,7 +80,7 @@ public class AdmMenu {
             System.out.println("                  |     3 - Ver lista de funcionários          |");
             System.out.println("                  |     4 - Alterar dados do funcionário       |");
             System.out.println("                  |     5 - Bonificar funcionário              |");
-            System.out.println("                  |     6 - Punir funcionário                  |");
+            System.out.println("                  |     6 - Punir funcionário              |");
             System.out.println("                  |     0 - Sair                               |");
             System.out.println("                  ==============================\n");
             System.out.print("Digite sua Opcao -> ");
@@ -106,7 +106,8 @@ public class AdmMenu {
                                 adicionar = in.nextInt();
                                 in.nextLine();
                                 break;
-                            }catch(NumberFormatException e){
+                            }catch(InputMismatchException e){
+                                in.nextLine();//Sem isso da loop infinito
                                 System.out.println("Digite apenas os valores listados");
                             }
                         }
@@ -137,7 +138,7 @@ public class AdmMenu {
                                             try{
                                                 fIdade = in.nextInt();
                                                 break;
-                                            }catch(NumberFormatException e){
+                                            }catch(InputMismatchException e){
                                                 System.out.println("Digite apenas numeros inteiros");
                                             }
                                         }
@@ -146,6 +147,20 @@ public class AdmMenu {
 
                             System.out.println("Digite o cpf do funcionário");
                             String fCpf = in.nextLine();
+                            
+                            while(j){  
+                            
+                                if(fCpf.equals("00000000000") || fCpf.equals("11111111111") || fCpf.equals("22222222222") ||
+                                    fCpf.equals("33333333333")|| fCpf.equals("44444444444") || fCpf.equals("55555555555") ||
+                                    fCpf.equals("66666666666")|| fCpf.equals("77777777777") || fCpf.equals("88888888888") ||
+                                    fCpf.equals("99999999999")|| (fCpf.length() != 11)){
+                                    System.out.println("Cpf invalido digite novamente");
+                                    fCpf = in.nextLine();
+                                }else{
+
+                                    break;
+                                }
+                            } 
 
                             System.out.println("Escolha a função do funcionário:\n1- Piloto\n2-Aeromoça(o)\n3(+)- Faxineiro");
                             int escolhafuncao = 0;
@@ -229,13 +244,19 @@ public class AdmMenu {
                         while(j){
                             try{
                                 demitir = in.nextInt();
-                                break;
-                            }catch(NumberFormatException e){
-                                System.out.println("Digite apenas valores válidos");
+                                if(demitir >=1 && demitir < 3){
+                                    break;
+                                }else {
+                                    System.out.println("Digite apenas os valores listados");
+                                }
+                            }catch(InputMismatchException e){
+                                in.nextLine();
+                                System.out.println("Digite apenas os valores listados");
                             }
+                            
                         }
-                        while(j){
-                            if(demitir < 1 || demitir > 2){
+                        /*
+                        if(demitir < 1 || demitir > 2){
                                 System.out.println("Digite apenas os valores listados");
                                 while(j){
                                     try{
@@ -246,12 +267,12 @@ public class AdmMenu {
                                     }
                                 }
                             }else break;
-                        }
-                        
+                        */
                         
                         if(demitir ==  1){                           
                             System.out.println("Digite os dados do funcionário");
                             System.out.println("Digite o cpf do funcionário");
+                            in.nextLine();
                             String fCpf2 = in.nextLine();
 
                             for(Funcionario fdemitir : fc){
@@ -263,7 +284,21 @@ public class AdmMenu {
                                     System.out.println(fdemitir.getSalario());
 
                                     System.out.println("Deseja demiti-lo?\n1- Sim\n2- Não");
-                                    int demissao = in.nextInt();
+                                    int demissao = 0; 
+                                    while(j){
+                                        try{
+                                            demissao = in.nextInt();
+                                            in.nextLine();
+                                            if(demissao >= 1 && demissao < 3){
+                                                break;
+                                            }else{
+                                                System.out.println("Digite entradas válidas");
+                                            }
+                                        }catch(InputMismatchException e){
+                                            in.nextLine();
+                                            System.out.println("Digite somente entradas válidas");
+                                        }
+                                    }
 
                                     if(demissao == 1){
                                         fdemitir.setCpf("0");

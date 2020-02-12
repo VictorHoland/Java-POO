@@ -17,10 +17,10 @@ public class Menu{
         do{
             System.out.println("\t\t## Vai Filhao AirLines :: ##");
             System.out.println("\n                  ==============================");
-            System.out.println("                  |     1 - Agendar vôo           |");
-            System.out.println("                  |     2 - Cancelar vôo          |");
-            System.out.println("                  |     3 - Check in              |");
-            System.out.println("                  |     4 - Estatos atuais        |");
+            System.out.println("                  |     1 - Agendar vôo    |");
+            System.out.println("                  |     2 - Cancelar vôo    |");
+            System.out.println("                  |     3 - Check in       |");
+            System.out.println("                  |     4 - Estatos atuais       |");
             System.out.println("                  |     5 - Alterar senha da conta|");
             System.out.println("                  |     0 - Sair                  |");
             System.out.println("                  ==============================\n");
@@ -47,7 +47,11 @@ public class Menu{
                             while(j){
                                 try{
                                     agendar = in.nextInt();
-                                    break;
+                                    if(agendar >= 1 && agendar < 3){
+                                        break;
+                                    }else{
+                                        System.out.println("Digite apenas entradas válidas");
+                                    }
                                 }catch(NumberFormatException e){
                                     System.out.println("Digite apenas os valores listados");
                                 }
@@ -255,16 +259,7 @@ public class Menu{
                     case 2:
                         System.out.println("Deseja cancelar o seu agendamento?\n1- Sim\n2- Não");
                         
-                        int cancelar = in.nextInt();
-                        /*while(j){
-                            try{
-                                cancelar = in.nextInt();
-                                break;
-                            }catch(NumberFormatException e){
-                                System.out.println("Digite apenas os valores listados");
-                            }
-                        }*/
-                        
+                        int cancelar = in.nextInt();                                   
                         if(cancelar == 1){
                             if(!pass.getCheckin() || pass.getPreco() == 0){
                                 pass.setDestino("Vazio");
@@ -313,13 +308,18 @@ public class Menu{
                             try{
                                 gerenciar = in.nextInt();
                                 in.nextLine();
-                                break;
+                                if(gerenciar >= 1 && gerenciar < 3){
+                                    break;
+                                }else{
+                                    System.out.println("Digite uma entrada válida");
+                                }
+                                
                             }catch(InputMismatchException e){
                                 in.nextLine();
                                 System.out.println("Digite apenas os valores listados");
                             }
                         }
-                        
+                            
                         if(gerenciar == 1){                                               		
                         
                             System.out.println("Digite a senha");
